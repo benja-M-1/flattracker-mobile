@@ -1,5 +1,5 @@
 angular.module '%module%.user'
-.controller 'LoginCtrl', ($scope, $cordovaToast, AccountManager, storage) ->
+.controller 'LoginCtrl', ($scope, AccountManager, storage) ->
 
   $scope.formError = false
   $scope.disabled = false
