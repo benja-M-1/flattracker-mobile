@@ -2,7 +2,7 @@ angular.module '%module%.user'
 .config ($stateProvider) ->
   $stateProvider
   .state 'login',
-    url: '/'
+    url: '/login'
     templateUrl: 'user/views/login.html'
     controller: 'LoginCtrl'
     cache: false

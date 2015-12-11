@@ -1,6 +1,3 @@
 angular.module '%module%.common'
-.run (storage, AccountManager) ->
-
-  if storage.user
-    AccountManager.updateCurrentUser (user, error) ->
-      
+.run ->
+  # @TODO : check here local user cache validity

@@ -8,6 +8,7 @@
   "dependencies": {
     "bower": "*",
     "coffee-script": "*",
+    "cordova": "^5.4.1",
     "gulp": "*",
     "gulp-add-src": "*",
     "gulp-angular-templatecache": "*",
@@ -38,7 +39,8 @@
     },
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen@^2.0.0",
-    "com.ionic.keyboard"
+    "com.ionic.keyboard",
+    "com.ionic.keyboard@^1.0.4"
   ],
   "cordovaPlatforms": [
     {

@@ -10,6 +10,7 @@ angular.module '%module%.user'
   SERVER_OAUTH_CLIENT_SECRET
 ) ->
 
+  #@TODO: use promises instead of callbacks
   login = (username, password, callback) ->
     $http
       method: 'POST'
