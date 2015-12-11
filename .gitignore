@@ -14,3 +14,4 @@ builds/*.ipa
 builds/*.app
 builds/*.apk
 .DS_Store
+.io-config.json
