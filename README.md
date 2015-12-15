@@ -93,27 +93,32 @@ Then install JDK from here : http://www.oracle.com/technetwork/java/javase/downl
 
 Run the Android SDK Manager (`android &` on Debian), and choose : `Android SDK Build-Tools`, `Android SDK Tools`, `Android SDK Platform-tools`, `SDK Platform` of the target device, and the drivers corresponding to your OS.
 
+# Configure Facebook connect plugin
+cordova -d plugin add cordova-plugin-facebook4 --variable APP_ID="156492668043546" --variable APP_NAME="FlatTracker"
+
+# Add Android platform and set minSdkVersion to 15 in AndroidManifest.xml
+cordova platform add android
+sed -iE 's@(android:minSdkVersion)="[^"]*"@\1="15"@g' platforms/android/AndroidManifest.xml
+
+To use Facebook authentication, you need to generate an Android development key hash, and supply it to Facebook.
+
+``` bash
+keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+```
+
+Choose a password, and copy the generate hash in the `Key Hashes` field of the Android section here : https://developers.facebook.com/apps/156492668043546/settings/
+
+
 To build on Android devices, run:
 
 ``` bash
 # Debug
-ionic run android --device
+ionic run android --device -l
 
 # Release (prod)
 ionic run android --release
 ```
 
-To deploy to HockeyApp, run:
-
-``` bash
-cordova-deploy --android --hockey --apk platforms/android/build/outputs/apk/android-debug.apk
-```
-
-(First, you need to install `cordova-deploy` via the command
-``` bash
-sudo npm install cordova-deploy -g
-```
-)
 
 iOS (only on Mac)
 -----------------

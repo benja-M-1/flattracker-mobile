@@ -1,29 +1,7 @@
-ion-view(scroll="true")
-  ion-pane.login
-
-    //- Title
-    .col.col-center.col-80.col-offset-10
-      .title.padding-vertical
-        h1
-          | FlatTracker
-        p Page de test
-
-    //- Login form
-    .col.col-center.col-80.col-offset-10
-      .card(ng-if="formError")
-        .item.item-assertive.item-text-wrap Adresse e-mail ou mot de passe invalide.
-
-      form(ng-submit="login(username, password)", novalidate)
-        .list.list-inset.fields
-
-          // Email
-          label.item.item-input.item-stable
-            i.icon.ion-person.placeholder-icon
-            input(type="text", ng-model="username", placeholder="Email", required)
-
-          // Password
-          label.item.item-input.item-stable
-            i.icon.ion-locked.placeholder-icon
-            input(type="password", ng-model="password", placeholder="Mot de passe", required)
-
-          button.button.button-block(type="submit", ng-disabled="disabled") Se connecter
+ion-view
+  ion-content.flattracker-background
+    .card
+      .item
+        img.full-image(src="../logo.png")
+      .item.item-text-wrap
+        button.button.button-block.button-positive.icon-left.ion-social-facebook(ng-click="login()") Se connecter

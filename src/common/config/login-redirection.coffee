@@ -1,3 +1,6 @@
+###*
+  Unused: will be useful with the backend
+###
 angular.module '%module%.common'
 .factory 'LoginRedirection', ($state, $ionicViewService) ->
   state =
