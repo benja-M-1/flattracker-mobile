@@ -1,7 +1,12 @@
 angular.module '%module%.user'
-.factory 'FacebookManager', ($q, $cordovaFacebook, $log, storage) ->
+.factory 'FacebookManager', ($q, $cordovaFacebook, $log, $ionicViewService, storage) ->
 
   login = ->
+    # Disable back button
+    $ionicViewService.nextViewOptions
+      disableBack: true
+
+    # Login with Facebook and get user info
     loging = $q.defer()
     $cordovaFacebook.login ['public_profile', 'email']
     .then ->
@@ -18,6 +23,11 @@ angular.module '%module%.user'
     loging.promise
 
   logout = ->
+    # Disable back button
+   $ionicViewService.nextViewOptions
+      disableBack: true
+
+    # Remove user from localStorage and FB logout
     delete storage.user
     logouting = $q.defer()
     $cordovaFacebook.logout()
