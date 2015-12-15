@@ -8,24 +8,24 @@ angular.module '%module%.user'
       $cordovaFacebook.api('me', ['public_profile', 'email'])
       .then (me) ->
         storage.user = me
-        loging.resolve
+        loging.resolve()
       , (error) ->
         $log.error error
-        loging.reject
+        loging.reject()
     , (error) ->
       $log.error error
-      loging.reject
+      loging.reject()
     loging.promise
 
   logout = ->
-    logouting = $q.defer()
     delete storage.user
+    logouting = $q.defer()
     $cordovaFacebook.logout()
     .then ->
-      logouting.resolve
+      logouting.resolve()
     , (error) ->
       $log.error error
-      logouting.reject
+      logouting.reject()
     logouting.promise
 
   logout: logout

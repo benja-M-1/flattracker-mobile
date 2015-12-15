@@ -7,7 +7,6 @@ angular.module '%module%.core'
     FacebookManager.logout()
     .then ->
       $cordovaToast.show 'Vous avez bien été déconnecté(e)', 'short', 'bottom'
+      $state.go 'login'
     .catch ->
       $cordovaToast.show 'Erreur lors de la déconnexion Facebook', 'short', 'bottom'
-    .finally ->
-      $state.go 'login'

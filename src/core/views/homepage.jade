@@ -4,5 +4,5 @@ ion-view
   ion-content.flattracker-background(scroll="true")
     .card
       .item.item-text-wrap
-        p Bonjour !
+        p Bonjour {{ user.name }} !
         button.button.button-clear(ng-click="logout()") Se déconnecter
