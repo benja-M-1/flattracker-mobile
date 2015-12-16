@@ -7,7 +7,7 @@ ion-view
         img.full-image(src="logo_cropped.png")
         p Bonjour {{ user.name }} !
         form(name="myForm")
-            input(type="url", placeholder="Saisissez l'URL de l'annonce !", required="")
+            input(type="url", placeholder="Saisissez l'URL de l'annonce !", ng-model="myURL", required="")
             button(ng-disabled="myForm.$invalid") Visitez pour moi !
     .card
       .item.item-text-wrap
