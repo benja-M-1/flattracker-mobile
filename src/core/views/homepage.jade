@@ -3,13 +3,12 @@ ion-view
     h1.title FlatTracker
   ion-content.flattracker-background
     .card
-      .item
       .item.item-text-wrap
         img.full-image(src="logo_cropped.png")
         p Bonjour {{ user.name }} !
-        form (name="myForm")
-            input(type="url", placeholder="Saisissez l'URL de l'annonce !")
-            button (ng-disabled="myForm.$invalid") Visitez pour moi !
+        form(name="myForm")
+            input(type="url", placeholder="Saisissez l'URL de l'annonce !", required="")
+            button(ng-disabled="myForm.$invalid") Visitez pour moi !
     .card
       .item.item-text-wrap
         logout
