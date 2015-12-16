@@ -3,8 +3,9 @@ ion-view
     h1.title FlatTracker
   ion-content.flattracker-background
     .card
-
+      .item
       .item.item-text-wrap
+        img.full-image(src="logo_cropped.png")
         p Bonjour {{ user.name }} !
         input(type="url", placeholder="Saisissez l'URL de l'annonce !")
     .card
