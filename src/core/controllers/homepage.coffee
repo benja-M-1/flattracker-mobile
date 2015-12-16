@@ -1,2 +1,3 @@
 angular.module '%module%.core'
-.controller 'HomepageCtrl', ->
+.controller 'HomepageCtrl', ($scope, storage) ->
+  $scope.user = storage.user

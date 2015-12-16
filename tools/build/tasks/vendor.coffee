@@ -32,7 +32,7 @@ gulp.task 'vendor', ->
   # Sass
   gulp.src [
     "bower_components/ionic/scss/ionic.scss"
-    "#{parameters.paths.src.main}/common/main.scss"
+    "#{parameters.paths.src.main}/common/styles/main.scss"
   ]
   .pipe plumber()
   .pipe sass()

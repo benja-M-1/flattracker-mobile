@@ -1,17 +1,10 @@
 angular.module '%module%.user'
-.controller 'LoginCtrl', ($scope, AccountManager, storage) ->
+.controller 'LoginCtrl', ($scope, $cordovaToast, $state, storage, FacebookManager) ->
 
-  $scope.formError = false
-  $scope.disabled = false
-  $scope.username = storage.username
-
-  $scope.login = (username, password) ->
-    $scope.disabled = true
-
-    AccountManager.login username, password, (username, error) ->
-      $scope.disabled = false
-
-      if error?.data
-        $scope.formError = true
-      else
-        $scope.formError = false
+  $scope.login = ->
+    FacebookManager.login()
+    .then ->
+      $cordovaToast.show 'Succès de la connexion Facebook', 'short', 'bottom'
+      $state.go 'homepage'
+    .catch (error) ->
+      $cordovaToast.show 'Erreur lors de la connexion Facebook', 'short', 'bottom'

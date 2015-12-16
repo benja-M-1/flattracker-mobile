@@ -1,3 +1,8 @@
-angular.module '%module%.common'
-.run ->
-  # @TODO : check here local user cache validity
+angular.module '%module%.user'
+.run ($state, storage) ->
+
+  # @TODO : we could check Facebook token validity?
+  if storage.user
+    $state.go 'homepage'
+  else
+    $state.go 'login'
