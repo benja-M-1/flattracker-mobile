@@ -41,7 +41,13 @@
     "cordova-plugin-splashscreen@^2.0.0",
     "com.ionic.keyboard",
     "com.ionic.keyboard@^1.0.4",
-    "cordova-plugin-facebook4",
+    {
+      "locator": "cordova-plugin-facebook4",
+      "variables": {
+        "APP_ID": "156492668043546",
+        "APP_NAME": "FlatTracker"
+      }
+    },
     "cordova-plugin-x-toast"
   ],
   "cordovaPlatforms": [
