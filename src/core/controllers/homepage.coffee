@@ -2,6 +2,9 @@ angular.module '%module%.core'
 .controller 'HomepageCtrl', ($scope, $state, $cordovaToast, storage, VisitManager) ->
   $scope.user = storage.user
 
+  $scope.$on '$ionicView.beforeEnter', ->
+    $scope.nbVisits = storage.visits.length
+
   $scope.createVisit = (url) ->
     VisitManager.create(url)
     .then (visit) ->
