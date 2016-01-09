@@ -1,5 +1,6 @@
 {
-    "api_key": "@TODO",
-    "android_app_id": "@TODO",
-    "ios_app_id": "@TODO"
+    "api_key": "d9b91449a2134f21a8c6c2133f44fb76",
+    "android_app_id": "e6d0462ba41343dfb0a6ff282cb85bae",
+    "ios_app_id": "ec402dba877c412c8b154bd2efa3cb54",
+    "apk": "platforms/android/build/outputs/apk/android-debug.apk"
 }
