@@ -1,0 +1,9 @@
+ion-view
+  ion-header-bar(align-title="center", class="bar-stable")
+    h1.title Détail d'une visite
+  ion-content
+    .list
+      .card
+        .item.item-text-wrap
+          p ID : {{ visit._id }}
+          p URL : {{ visit.url }}
