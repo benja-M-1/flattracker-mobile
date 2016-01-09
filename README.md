@@ -15,12 +15,14 @@ Front development requires these following packages:
  * `ionic`
  * `cordova`
  * `ant`
+ * `cordova-deploy` with Bam patch to handle upload with HockeyApp
 
 Assuming `npm` is installed, run this to install requirements :
 
 ``` bash
 sudo npm install -g ionic
 sudo npm install -g cordova
+sudo npm install -g bamlab/cordova-deploy
 sudo apt-get install ant android-tools-adb
 ```
 
@@ -93,12 +95,11 @@ Then install JDK from here : http://www.oracle.com/technetwork/java/javase/downl
 
 Run the Android SDK Manager (`android &` on Debian), and choose : `Android SDK Build-Tools`, `Android SDK Tools`, `Android SDK Platform-tools`, `SDK Platform` of the target device, and the drivers corresponding to your OS.
 
-# Configure Facebook connect plugin
-cordova -d plugin add cordova-plugin-facebook4 --variable APP_ID="156492668043546" --variable APP_NAME="FlatTracker"
-
-# Add Android platform and set minSdkVersion to 15 in AndroidManifest.xml
+# Add Android platform and set minSdkVersion to 15 in AndroidManifest.xml (this `sed` syntax works only on Linux)
+```
 cordova platform add android
 sed -iE 's@(android:minSdkVersion)="[^"]*"@\1="15"@g' platforms/android/AndroidManifest.xml
+```
 
 To use Facebook authentication, you need to generate an Android development key hash, and supply it to Facebook.
 
@@ -107,7 +108,6 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore |
 ```
 
 Choose a password, and copy the generate hash in the `Key Hashes` field of the Android section here : https://developers.facebook.com/apps/156492668043546/settings/
-
 
 To build on Android devices, run:
 
@@ -119,22 +119,36 @@ ionic run android --device -l
 ionic run android --release
 ```
 
+To build and deploy to HockeyApp, run:
+
+``` bash
+cordova-deploy --build --android -N
+```
 
 iOS (only on Mac)
 -----------------
 
-``` bash
-cordova platform add ios
+The first time, assuming you have the last version of `Xcode` and a valid Apple Account Developper:
+ * Go here https://developer.apple.com/account/ios/certificate/certificateList.action and click on `+`
+ * Choose `ìOS App Development`, and follow instructions to generate a CSR file, and upload it.
+ * Download iOS Certificates and import it in your KeyChain (just open it)
+ * In project root directory, run `ionic platform add ios`
+ * Open Xcode, open `Xcode` menu > `Preferences...`, `Accounts` tab, and add your Apple ID.
+ * Click on Theodo team, then `View details` and download `iOS Team Provisioning Profile: *`
+ * Open with Xcode `platforms/ios/FlatTracker.xcodeproj`, and double click on `FlatTracker` in the left tree
+  * In `General` tab, set `Team` to `Theodo`
+  * In `Build Settings` tab `Architectures` section, set valid architectures to `arm64 armv7` and set `Build Active Architecture Only` to Yes
+  * In `Build Settings` tab `Code Signing` section, set `Code Signing Identity` (and all children) to : `iPhone Developer: <certificate name> (<certifiate ID>)`
+ * Edit `platforms/ios/cordova/build-release.xcconfig` and set `CODE_SIGN_IDENTITY` and `CODE_SIGN_IDENTITY[sdk=iphoneos*]` to `iPhone Developer: <certificate name> (<certifiate ID>)` (you have shown the exact value previously in XCode)
+
+To build, run :
 ```
-
-**@TODO: ...**
-
-To build on iOS devices, run :
-
-**@TODO: ...**
+bash build-ios.sh
+```
+It will generate `builds/FlatTracker.ipa`
 
 To build and deploy to HockeyApp, run:
 
 ``` bash
-cordova-deploy --build --ios --hockey
+cordova-deploy --build --ios -N
 ```
