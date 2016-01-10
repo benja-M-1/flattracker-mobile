@@ -96,9 +96,16 @@ Then install JDK from here : http://www.oracle.com/technetwork/java/javase/downl
 Run the Android SDK Manager (`android &` on Debian), and choose : `Android SDK Build-Tools`, `Android SDK Tools`, `Android SDK Platform-tools`, `SDK Platform` of the target device, and the drivers corresponding to your OS.
 
 # Add Android platform and set minSdkVersion to 15 in AndroidManifest.xml (this `sed` syntax works only on Linux)
-```
+
+``` bash
 cordova platform add android
+
+# Linux only
 sed -iE 's@(android:minSdkVersion)="[^"]*"@\1="15"@g' platforms/android/AndroidManifest.xml
+
+# Mac
+brew install gnu-sed --default-names
+/usr/local/bin/sed  -iE 's@(android:minSdkVersion)="[^"]*"@\1="15"@g' platforms/android/AndroidManifest.xml
 ```
 
 To use Facebook authentication, you need to generate an Android development key hash, and supply it to Facebook.
