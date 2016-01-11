@@ -11,4 +11,5 @@ angular.module '%module%', [
   '%module%.common'
   '%module%.user'
   '%module%.core'
+  '%module%.visit'
 ]

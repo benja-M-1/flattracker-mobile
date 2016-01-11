@@ -1,17 +1,23 @@
 ion-view
   ion-header-bar(align-title="center", class="bar-stable")
     h1.title FlatTracker
-  ion-content.flattracker-background
-    .card
-      .item.item-text-wrap
-        img.full-image(src="logo_cropped.png")
-        p Bonjour {{ user.name }} !
-        form(name="myForm")
-            input(type="url", placeholder="Saisissez l'URL de l'annonce !", ng-model="myURL", required="")
-            button(ng-disabled="myForm.$invalid") Visitez pour moi !
-    .card
+  ion-content
+    .list
+      .card
         .item.item-text-wrap
-            button Mes visites
-    .card
-      .item.item-text-wrap
-        logout
+          img.full-image(src="logo_cropped.png")
+          p Bonjour {{ user.name }} !
+
+      .card
+        form.create-visit-form(name="createVisitForm", ng-submit="createVisit(url)")
+          label.item.item-input.item-floating-label
+            span.input-label
+              | Saisissez l'URL de l'annonce !
+            input(type="url", placeholder="Saisissez l'URL de l'annonce !", ng-model="url", required)
+          .padding
+            button.button.button-positive.button-block(ng-disabled="createVisitForm.$invalid") Visitez pour moi !
+
+      .card
+        .item.item-text-wrap
+          button.button.button-positive.button-block Mes visites ({{ nbVisits }})
+          logout
