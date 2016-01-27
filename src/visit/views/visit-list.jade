@@ -2,9 +2,11 @@ ion-view
   ion-header-bar(align-title="center", class="bar-stable")
     .buttons
       button.button.button-stable.icon.ion-home(ui-sref="homepage")
-    h1.title Mes visites
+    h1.title Liste des visites
   ion-content
     .list
-        .card
-          .item.item-text-wrap
+      .card(ng-repeat="visit in visits")
+        .item.item-text-wrap
+          p ID : {{ visit._id }}
+          p URL : {{ visit.url }}
 
