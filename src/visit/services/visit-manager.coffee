@@ -44,10 +44,7 @@ angular.module '%module%.visit'
 
     visits = storage.visits
 
-    if visits
-      collectingVisit.resolve visits
-    else
-      collectingVisit.reject()
+    collectingVisit.resolve visits
 
     collectingVisit.promise
 
