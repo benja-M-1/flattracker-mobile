@@ -39,5 +39,16 @@ angular.module '%module%.visit'
 
     gettingVisit.promise
 
+  collect = () ->
+    collectingVisit = $q.defer()
+
+    visits = storage.visits
+
+    collectingVisit.resolve visits
+
+    collectingVisit.promise
+
+
   create: create
   get: get
+  collect: collect
