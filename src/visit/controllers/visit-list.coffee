@@ -7,3 +7,4 @@ angular.module '%module%.visit'
   .catch ->
     $cordovaToast.show 'Aucune visite n\'est enregistrée', 'short', 'bottom'
     $state.go 'homepage'
+
