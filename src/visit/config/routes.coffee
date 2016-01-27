@@ -9,3 +9,4 @@ angular.module '%module%.visit'
     url: '/visits'
     templateUrl: 'visit/views/visit-list.html'
     controller: 'VisitListCtrl'
+
