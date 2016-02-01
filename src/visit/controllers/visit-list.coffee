@@ -1,7 +1,7 @@
 angular.module '%module%.visit'
 .controller 'VisitListCtrl', ($scope, VisitManager, $cordovaToast, $state) ->
 
-  VisitManager.collect()
+  VisitManager.cget()
   .then (visits) ->
     $scope.visits = visits
   .catch ->

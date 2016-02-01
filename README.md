@@ -73,7 +73,7 @@ ionic serve --lab
 
 ## Build and deploy
 
-**WARNING** : don't forget to increment version in `config.xml` file after each release.
+**WARNING** : don't forget to increment version in `config.xml`, `bower.json` and `package.json` file after each release.
 
 Android
 -------

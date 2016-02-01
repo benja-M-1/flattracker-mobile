@@ -1,6 +1,6 @@
 {
   "name": "flattracker-mobile",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower",
     "platform": "~1.3.0"
