@@ -5,7 +5,7 @@
 To install you will need access to the following projects:
 
  * @TODO (backend)
- * https://github.com/sghribi/flattracker-mobile (front)
+ * https://github.com/theodo/flattracker-mobile (front)
  
 To install backend, follow instructions in README of `@TODO` project.
 
