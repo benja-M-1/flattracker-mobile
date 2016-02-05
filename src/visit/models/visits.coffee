@@ -1,8 +1,6 @@
 angular.module '%module%.visit'
-.factory 'Visits', ($resource, SERVER_API_URL, storage) ->
-  $resource SERVER_API_URL + 'visits/:id', {id: '@id', access_token: '@access_token'},
+.factory 'Visits', ($resource, SERVER_API_URL) ->
+  $resource SERVER_API_URL + '/visits/:id', {id: '@id'},
     get:
-      url: SERVER_API_URL + 'visits/:id'
+      url: SERVER_API_URL + '/visits/:id'
       method: 'GET'
-      params:
-        Authorization: 'Bearer ' + storage.accessToken

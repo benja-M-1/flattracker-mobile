@@ -1,3 +1,4 @@
 {
-  "FACEBOOK_APP_ID": "@TODO"
+  "FACEBOOK_APP_ID": "@TODO",
+  "SERVER_API_URL": "https://flattracker-api.ghribi.net/api/v1"
 }
