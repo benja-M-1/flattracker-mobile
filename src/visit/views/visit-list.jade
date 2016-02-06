@@ -3,10 +3,11 @@ ion-view
     .buttons
       button.button.button-stable.icon.ion-home(ui-sref="homepage")
     h1.title Liste des visites
+    .button
+      ion-spinner(ng-show="loading")
   ion-content
     .list
-      .card(ng-repeat="visit in visits")
+      .card(ng-repeat="visit in visits", ui-sref="visit-view({id: visit.id})")
         .item.item-text-wrap
-          p ID : {{ visit._id }}
+          p ID : {{ visit.id }}
           p URL : {{ visit.url }}
-
