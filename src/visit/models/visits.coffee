@@ -4,6 +4,10 @@ angular.module '%module%.visit'
     get:
       url: SERVER_API_URL + '/visits/:id'
       method: 'GET'
+    cget:
+      url: SERVER_API_URL + '/visits'
+      method: 'GET'
+      isArray: true
     cgetUserVisitsAsSearcherAction:
       url: SERVER_API_URL + '/users/:userId/visits-as-searcher'
       method: 'GET'

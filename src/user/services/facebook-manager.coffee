@@ -16,6 +16,7 @@ angular.module '%module%.user'
           'user[email]': me.email
           'user[name]': me.first_name + ' ' + me.last_name
           'user[facebookId]': me.id
+          'user[facebookPictureUrl]': me.picture.data.url
         Users.createOrUpdate $httpParamSerializer(userJSON), (user) ->
           storage.user =
             id: user.id

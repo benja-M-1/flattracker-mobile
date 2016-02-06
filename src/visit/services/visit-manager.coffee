@@ -41,6 +41,18 @@ angular.module '%module%.visit'
 
     collectingVisit.promise
 
+  cget = ->
+    collectingVisit = $q.defer()
+
+    Visits.cget {}, (visitsResponse) ->
+      collectingVisit.resolve visitsResponse
+    , (error) ->
+      $log.error error
+      collectingVisit.reject error
+
+    collectingVisit.promise
+
   create: create
   get: get
   cgetUserAsSearcherVisits: cgetUserAsSearcherVisits
+  cget: cget

@@ -7,7 +7,4 @@ ion-view
       ion-spinner(ng-show="loading")
   ion-content
     .list
-      .card(ng-repeat="visit in visits", ui-sref="visit-view({id: visit.id})")
-        .item.item-text-wrap
-          p ID : {{ visit.id }}
-          p URL : {{ visit.url }}
+      visit-card(visit="visit", ng-repeat="visit in visits")
