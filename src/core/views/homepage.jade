@@ -13,12 +13,12 @@ ion-view
           label.item.item-input.item-floating-label
             span.input-label
               | Saisissez l'URL de l'annonce !
-            input(type="url", placeholder="Saisissez l'URL de l'annonce !", ng-model="url", required)
+            input(type="text", placeholder="Saisissez l'URL de l'annonce !", ng-model="url", required)
           .padding
             button.button.button-positive.button-block(ng-disabled="createVisitForm.$invalid") Visitez pour moi !
 
       .card
         .item.item-text-wrap
-          button.button.button-positive.button-block(ui-sref="visit-list") Mes visites ({{ nbVisits }})
+          button.button.button-positive.button-block(ui-sref="visit-list") Mes visites
           button.button.button-balanced.button-block(ui-sref="visit-request-list") Mode tracker
           logout

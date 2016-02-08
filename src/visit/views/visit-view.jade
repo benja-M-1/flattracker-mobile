@@ -3,9 +3,8 @@ ion-view
     .buttons
       button.button.button-stable.icon.ion-home(ui-sref="homepage")
     h1.title Détail d'une visite
+    .button
+      ion-spinner(ng-show="loading")
   ion-content
     .list
-      .card
-        .item.item-text-wrap
-          p ID : {{ visit._id }}
-          p URL : {{ visit.url }}
+      visit-card(visit="visit")
