@@ -2,5 +2,6 @@
   .item.item-text-wrap
     p ID : {{ visit.id }}
     p URL : {{ visit.url }}
+    p Metadata : {{ visit.metadata }}
     p Searcher : {{ visit.searcher.name }}
     p(ng-show="visit.tracker") Tracker : {{ visit.tracker.name }}
