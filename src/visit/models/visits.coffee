@@ -17,3 +17,6 @@ angular.module '%module%.visit'
       method: 'POST'
       headers:
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    assignVisitToTracker:
+      url: SERVER_API_URL + '/visits/:id/affect/:userId'
+      method: 'PUT'
