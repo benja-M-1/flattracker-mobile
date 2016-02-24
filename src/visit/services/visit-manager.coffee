@@ -52,7 +52,19 @@ angular.module '%module%.visit'
 
     collectingVisit.promise
 
+  assignVisitToMe = (visitId) ->
+    assigningVisit = $q.defer()
+
+    Visits.assignVisitToTracker {userId: storage.user.id, id: visitId}, (visitResponse) ->
+      assigningVisit.resolve visitResponse
+    , (error) ->
+      $log.error error
+      assigningVisit.reject error
+
+    assigningVisit.promise
+
   create: create
   get: get
   cgetUserAsSearcherVisits: cgetUserAsSearcherVisits
   cget: cget
+  assignVisitToMe: assignVisitToMe

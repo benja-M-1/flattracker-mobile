@@ -1,7 +1,17 @@
-.card(ui-sref="visit-view({id: visit.id})")
+.card
+  .item.item-divider.item-icon-left
+    i.icon.ion-home
+    a(ui-sref="visit-view({id: visit.id})") {{ visit.metadata.title }}
   .item.item-text-wrap
     p ID : {{ visit.id }}
     p URL : {{ visit.url }}
     p Metadata : {{ visit.metadata }}
     p Searcher : {{ visit.searcher.name }}
     p(ng-show="visit.tracker") Tracker : {{ visit.tracker.name }}
+    button.button.button-small.button-stable.pull-right(
+      ng-if="displayAssignButton"
+      ng-show="!visit.tracker"
+      ng-class="{disabled: buttonDisabled}"
+      ng-click="assignVisitToMe(visit.id)"
+    )
+      | M'assigner la visite
