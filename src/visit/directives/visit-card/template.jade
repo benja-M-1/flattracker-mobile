@@ -1,7 +1,7 @@
 .card
   .item.item-divider.item-icon-left
     i.icon.ion-home
-    a {{ visit.metadata.title }}
+    a(ui-sref="visit-view({id: visit.id})") {{ visit.metadata.title }}
     p {{ visit.url }}
   .item.item-avatar
     img(ng-src="{{ visit.searcher.pictureUrl }}")
