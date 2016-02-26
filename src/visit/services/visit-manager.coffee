@@ -63,8 +63,27 @@ angular.module '%module%.visit'
 
     assigningVisit.promise
 
+  postMessage = (visitId, message) ->
+    postingMessage = $q.defer()
+
+    # Create visit
+    messageJSON =
+      'message[author]': storage.user.id
+      'message[content]': message
+
+    Visits.addMessage {id: visitId}, $httpParamSerializer(messageJSON), (visitResponse) ->
+      visit = visitResponse
+
+      postingMessage.resolve visit
+    , (error) ->
+      $log.error error
+      postingMessage.reject error
+
+    postingMessage.promise
+
   create: create
   get: get
   cgetUserAsSearcherVisits: cgetUserAsSearcherVisits
   cget: cget
   assignVisitToMe: assignVisitToMe
+  postMessage: postMessage

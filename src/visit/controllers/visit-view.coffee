@@ -1,6 +1,8 @@
 angular.module '%module%.visit'
 .controller 'VisitViewCtrl', ($stateParams, $cordovaToast, $state, $scope, VisitManager, storage) ->
   visitId = $stateParams.id
+  $scope.form = {}
+  $scope.addCommentFormDisabled = false
 
   $scope.$on '$ionicView.beforeEnter', ->
     $scope.loading = true
@@ -13,15 +15,24 @@ angular.module '%module%.visit'
     .finally ->
       $scope.loading = false
 
+  $scope.postMessage = ->
+    $scope.addCommentFormDisabled = true
+    $scope.loading = true
+    VisitManager.postMessage(visitId, $scope.form.comment)
+    .then (visit) ->
+      $scope.visit = visit
+      $cordovaToast.show 'Votre message a bien été posté !', 'short', 'bottom'
+      $scope.form = {}
+    .catch ->
+      $cordovaToast.show 'Erreur lors de l\'envoi du message', 'short', 'bottom'
+    .finally ->
+      $scope.addCommentFormDisabled = false
+      $scope.loading = false
 
   # Update placeholder
   $scope.$watch 'visit', (visit) ->
     if not visit?.tracker
       return
-
-    # @TODO: remove it
-    visit.messages = []
-
 
     if visit?.messages?.length == 0
       if visit.searcher.id == storage.user.id
