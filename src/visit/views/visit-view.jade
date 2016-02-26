@@ -8,3 +8,16 @@ ion-view
   ion-content
     .list
       visit-card(visit="visit")
+      .card(ng-if="visit.tracker")
+        .item.item-divider.item-icon-left
+          i.icon.ion-chatboxes
+          | Activités
+        .item.item-icon-right.item-input-inset.add-comment-input
+          textarea(msd-elastic="\n", placeholder="{{ commentPlaceholder }}", ng-model="comment")
+          button.button-clear.button.button-dark.icon.ion-android-send
+        .item.item-avatar.item-text-wrap
+          img(ng-src="{{ visit.tracker.pictureUrl }}")
+          h2 {{ visit.searcher.name }}, le 19/03/2016 à 14h33
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed arcu at mi laoreet venenatis. Integer in elit dolor. Nullam ultrices convallis est, ac imperdiet felis luctus ac. Etiam id tempor neque. Maecenas nec volutpat erat, convallis congue sapien. Phasellus odio dui, condimentum ut consectetur sodales, volutpat et sem. Aenean condimentum, metus quis porttitor mollis, lorem tellus auctor nisi, quis dictum nibh odio non dui.
+            | In auctor, libero at finibus rhoncus, arcu nunc laoreet urna, consequat lobortis enim tellus nec est. Vestibulum ipsum dui, malesuada in suscipit in, viverra a quam. Donec sit amet orci mattis, auctor ligula vulputate, vestibulum massa. Nunc a varius neque, eu tempor nisi. Integer eget diam molestie, bibendum ex sit amet, sollicitudin dui. Proin libero ipsum, mollis non sapien nec, condimentum mattis nulla. Nullam interdum mollis bibendum. Phasellus ultricies vulputate neque at convallis. Curabitur massa diam, rutrum at consequat in, fringilla et arcu.

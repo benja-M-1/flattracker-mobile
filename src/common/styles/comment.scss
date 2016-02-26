@@ -1,0 +1,13 @@
+.add-comment-input {
+  textarea {
+    width: 100%;
+    padding-right: 40px;
+    min-height: 40px;
+  }
+
+  // Fix send button at the bottom
+  .icon {
+    align-items: flex-end;
+    padding-bottom: 15px;
+  }
+}

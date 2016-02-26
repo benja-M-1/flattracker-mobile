@@ -13,6 +13,7 @@
     "angular-ui-router": "*",
     "lodash": "*",
     "moment": "*",
-    "ionic": "driftyco/ionic-bower#v1.2.0"
+    "ionic": "driftyco/ionic-bower#v1.2.0",
+    "angular-elastic": "~2.5.1"
   }
 }
