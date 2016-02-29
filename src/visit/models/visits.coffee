@@ -20,9 +20,6 @@ angular.module '%module%.visit'
     assignVisitToTracker:
       url: SERVER_API_URL + '/visits/:id/affect/:userId'
       method: 'PUT'
-    assignVisitToTracker:
-      url: SERVER_API_URL + '/visits/:id/affect/:userId'
-      method: 'POST'
     addMessage:
       url: SERVER_API_URL + '/visits/:id/messages'
       method: 'POST'
