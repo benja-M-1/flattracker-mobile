@@ -7,5 +7,8 @@ angular.module '%module%.core'
     .then (visit) ->
       $cordovaToast.show 'Votre visite a bien été créée', 'short', 'bottom'
       $state.go 'visit-view', {id: visit.id}
-    .catch ->
-      $cordovaToast.show 'Erreur lors de la création de la visite', 'short', 'bottom'
+    .catch (error) ->
+      if error.status in [400, 500]
+        $cordovaToast.show "Ceci n'est pas une URL valide", 'short', 'bottom'
+      else
+        $cordovaToast.show 'Erreur lors de la création de la visite', 'short', 'bottom'
