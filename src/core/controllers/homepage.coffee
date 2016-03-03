@@ -9,6 +9,6 @@ angular.module '%module%.core'
       $state.go 'visit-view', {id: visit.id}
     .catch (error) ->
       if error.status in [400, 500]
-        $cordovaToast.show 'URL invalide', 'short', 'bottom'
+        $cordovaToast.show "Ceci n'est pas une URL valide", 'short', 'bottom'
       else
         $cordovaToast.show 'Erreur lors de la création de la visite', 'short', 'bottom'
