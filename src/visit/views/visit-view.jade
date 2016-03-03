@@ -8,3 +8,16 @@ ion-view
   ion-content
     .list
       visit-card(visit="visit")
+      .card(ng-if="visit.tracker")
+        .item.item-divider.item-icon-left
+          i.icon.ion-chatboxes
+          | Activités
+        .item.item-icon-right.item-input-inset.add-comment-input
+          form(role="form", name="addCommentForm", ng-submit="postMessage()")
+            textarea(msd-elastic, name="comment", placeholder="{{ commentPlaceholder }}", ng-model="form.comment", required)
+            button.button-clear.button.button-dark.icon.ion-android-send(ng-disabled="addCommentForm.$invalid || addCommentFormDisabled")
+        .item.item-avatar.item-text-wrap.message(ng-repeat="message in visit.messages")
+          img(ng-src="{{ message.author.pictureUrl }}")
+          h2 {{ message.author.name }}, le {{ visit.created_at | date:"lll" }}
+          p.content
+            | {{ message.content }}

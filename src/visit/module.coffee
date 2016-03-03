@@ -13,4 +13,5 @@ angular.module '%module%.visit', [
   'ngResource'
   'ngCordova'
   'ui.router'
+  'monospaced.elastic'
 ]

@@ -1,6 +1,6 @@
 {
   "name": "flattracker-mobile",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower",
     "platform": "~1.3.0"
@@ -13,6 +13,7 @@
     "angular-ui-router": "*",
     "lodash": "*",
     "moment": "*",
-    "ionic": "driftyco/ionic-bower#v1.2.0"
+    "ionic": "driftyco/ionic-bower#v1.2.0",
+    "angular-elastic": "~2.5.1"
   }
 }
