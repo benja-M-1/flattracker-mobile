@@ -10,6 +10,12 @@ ion-view
       visit-card(visit="visit")
       .card(ng-if="visit.tracker")
         .item.item-divider.item-icon-left
+          i.icon.ion-ios-videocam
+          | Vidéos
+        .item
+          button.button.button-balanced.button-block(ui-sref="#") Prendre une vidéo
+      .card(ng-if="visit.tracker")
+        .item.item-divider.item-icon-left
           i.icon.ion-chatboxes
           | Activités
         .item.item-icon-right.item-input-inset.add-comment-input
