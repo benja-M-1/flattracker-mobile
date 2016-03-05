@@ -3,6 +3,7 @@ angular.module '%module%.visit'
   visitId = $stateParams.id
   $scope.form = {}
   $scope.addCommentFormDisabled = false
+  $scope.user = storage.user
 
   $scope.$on '$ionicView.beforeEnter', ->
     $scope.loading = true
@@ -31,12 +32,9 @@ angular.module '%module%.visit'
 
   # Update placeholder
   $scope.$watch 'visit', (visit) ->
-    if not visit?.tracker
-      return
-
     if visit?.messages?.length == 0
       if visit.searcher.id == storage.user.id
-        $scope.commentPlaceholder = "Dites à " + visit.tracker.name + " ce que vous souhaitez qu'il vérifie pendant la visite ?"
+        $scope.commentPlaceholder = "Qu'attendez-vous de cette visite ?"
       else
         $scope.commentPlaceholder = "Que voulez-vous que je vérifie pendant la visite ?"
     else

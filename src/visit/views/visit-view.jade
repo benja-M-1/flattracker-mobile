@@ -8,7 +8,7 @@ ion-view
   ion-content
     .list
       visit-card(visit="visit")
-      .card(ng-if="visit.tracker")
+      .card(ng-if="user.id == visit.tracker.id || user.id == visit.searcher.id")
         .item.item-divider.item-icon-left
           i.icon.ion-chatboxes
           | Activités
