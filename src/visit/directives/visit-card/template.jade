@@ -1,8 +1,10 @@
 .card
   .item.item-divider.item-icon-left
     i.icon.ion-home
-    a(ui-sref="visit-view({id: visit.id})") {{ visit.metadata.title }}
-    p {{ visit.url }}
+    a(ui-sref="visit-view({id: visit.id})")
+      span(ng-if="visit.metadata.title") {{ visit.metadata.title }}
+      span(ng-if="!visit.metadata.title") {{ visit.url }}
+    p(ng-if="visit.metadata.title") {{ visit.url }}
   .item.item-avatar
     img(ng-src="{{ visit.searcher.pictureUrl }}")
     h2 {{ visit.searcher.name }}
