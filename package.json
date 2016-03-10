@@ -1,6 +1,6 @@
 {
   "name": "flattracker-mobile",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "scripts": {
     "postinstall": "bower install && gulp build",
     "start": "gulp watch"
@@ -48,7 +48,10 @@
         "APP_NAME": "FlatTracker"
       }
     },
-    "cordova-plugin-x-toast"
+    "cordova-plugin-x-toast",
+    "org.apache.cordova.camera",
+    "cordova-plugin-media-capture",
+    "cordova-plugin-photokandy-video-thumbnail"
   ],
   "cordovaPlatforms": [
     "android",
