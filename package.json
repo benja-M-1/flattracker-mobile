@@ -1,6 +1,6 @@
 {
   "name": "flattracker-mobile",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "scripts": {
     "postinstall": "bower install && gulp build",
     "start": "gulp watch"
