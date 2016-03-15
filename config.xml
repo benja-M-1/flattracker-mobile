@@ -7,7 +7,7 @@
   <author email="ghribi.samy@gmail.com">
         Samy Ghribi
     </author>
-  <content src="http://138.195.111.173:8100" original-src="index.html"/>
+  <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
