@@ -63,3 +63,4 @@ angular.module '%module%.visit'
 
   $scope.showClip = (clip) ->
     console.log('show clip: ' + clip)
+    
