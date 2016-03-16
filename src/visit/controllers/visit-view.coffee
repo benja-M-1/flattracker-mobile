@@ -1,5 +1,5 @@
 angular.module '%module%.visit'
-.controller 'VisitViewCtrl', ($stateParams, $cordovaToast, $state, $scope, VisitManager, storage) ->
+.controller 'VisitViewCtrl', ($stateParams, $cordovaToast, $state, $scope, VisitManager, storage, $cordovaCapture, VideoService) ->
   visitId = $stateParams.id
   $scope.form = {}
   $scope.addCommentFormDisabled = false
@@ -40,3 +40,25 @@ angular.module '%module%.visit'
     else
       $scope.commentPlaceholder = 'Ajoutez un commentaire'
   , true
+
+  # Capture Video
+  $scope.clip = ''
+
+  $scope.captureVideo = ->
+    $cordovaCapture.captureVideo()
+    .then(videoData) ->
+      VideoService.saveVideo(videoData).success(data) ->
+        $scope.clip = data
+        $scope.$apply()
+      .error(data) ->
+        console.log('ERROR: ' + data)
+
+  $scope.urlForClipThumb = (clipUrl) ->
+    name = clipUrl.substr(clipUrl.lastIndexOf('/') + 1)
+    trueOrigin = cordova.file.dataDirectory + name
+    sliced = trueOrigin.slice(0, -4)
+    return sliced + '.png'
+
+  $scope.showClip = (clip) ->
+    console.log('show clip: ' + clip)
+    
