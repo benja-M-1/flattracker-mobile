@@ -6,3 +6,9 @@ angular.module '%module%.user'
     url: '/login'
     templateUrl: 'user/views/login.html'
     controller: 'LoginCtrl'
+  .state 'profile',
+    url: '/profile'
+    templateUrl: 'user/views/profile.html'
+    controller: 'ProfileCtrl'
+
+

@@ -1,0 +1,15 @@
+ion-view
+  ion-header-bar(align-title="center", class="bar-stable")
+    h1.title Mon profil
+  ion-content
+    .list
+      .card
+        .item.item-avatar
+          img(ng-src="{{ user.pictureUrl }}")
+          h2 {{ user.name }}
+          p Searcher
+
+      .card
+        .item.item-text-wrap
+          button.button.button-balanced.button-block.icon-right.ion-arrow-swap(ui-sref="visit-request-list") Passer en mode tracker
+  bottom-menu
