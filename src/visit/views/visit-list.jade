@@ -1,13 +1,9 @@
 ion-view
   ion-header-bar(align-title="center", class="bar-stable")
-    h1.title Liste des visites
+    h1.title Liste des mes visites
     .button
       ion-spinner(ng-show="loading")
   ion-content
     .list
       visit-card(visit="visit", ng-repeat="visit in visits")
-  ion-footer-bar(class="bar-stable")
-    .button-bar
-      a.button.button-stable.icon.ion-search(ui-sref="homepage")
-      a.button.button-stable.icon.ion-navicon-round(ui-sref="visit-list")
-      a.button.button-stable.icon.ion-person
+  bottom-menu
