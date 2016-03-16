@@ -13,7 +13,7 @@ ion-view
           i.icon.ion-ios-videocam
           | Vidéos
         .item
-          button.button.button-balanced.button-block(ui-sref="#") Prendre une vidéo
+          button.button.button-balanced.button-block(ui-sref="#", ng-show="visit.tracker.id==storage.user.id") Prendre une vidéo
       .card(ng-if="visit.tracker")
         .item.item-divider.item-icon-left
           i.icon.ion-chatboxes
