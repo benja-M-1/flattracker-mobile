@@ -12,7 +12,7 @@ ion-view
           | Vidéos
         .item
           img(ng-src="{{urlForClipThumb(clip)}}", ng-click="showClip(clip)", style="height:160px")
-          button.button.button-balanced.button-block(ng-click="captureVideo()") Prendre une vidéo
+          button.button.button-balanced.button-block(ng-click="captureVideo()", ng-show="visit.tracker.id==storage.user.id") Prendre une vidéo
       .card(ng-if="visit.tracker")
         .item.item-divider.item-icon-left
           i.icon.ion-chatboxes
