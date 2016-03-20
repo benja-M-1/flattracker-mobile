@@ -22,6 +22,7 @@ angular.module '%module%.user'
             id: user.id
             name: user.name
             facebookId: user.facebook_id
+            pictureUrl: user.facebook_picture_url
           loging.resolve()
         , (error) ->
           $log.error error
