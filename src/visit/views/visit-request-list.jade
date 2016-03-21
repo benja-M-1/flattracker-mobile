@@ -5,6 +5,9 @@ ion-view
       ion-spinner(ng-show="loading")
   ion-content
     .list
+      .card
+        .item.item-text-wrap
+          button.button.button-balanced.button-block.icon-right.ion-star(ui-sref="visit-list-tracker") N'afficher que mes visites
       visit-card(visit="visit", ng-repeat="visit in visits", display-assign-button="true")
   bottom-menu
 
