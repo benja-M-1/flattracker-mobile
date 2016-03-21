@@ -8,6 +8,6 @@ ion-view
       .card
         .item.item-text-wrap
           button.button.button-balanced.button-block.icon-right.ion-star(ui-sref="visit-list-tracker") N'afficher que mes visites
-      visit-card(visit="visit", ng-repeat="visit in visits", display-assign-button="true")
+      visit-card(visit="visit", ng-repeat="visit in visits", display-assign-button="true", ng-show="!visit.tracker")
   bottom-menu
 
