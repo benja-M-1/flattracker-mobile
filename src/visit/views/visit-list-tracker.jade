@@ -5,5 +5,5 @@ ion-view
       ion-spinner(ng-show="loading")
   ion-content
     .list
-      visit-card(visit="visit", ng-repeat="visit in visits", ng-show="visit.tracker.id==storage.user.id")
+      visit-card(visit="visit", ng-repeat="visit in visits", ng-show="visit.tracker.id==user.id")
   bottom-menu
