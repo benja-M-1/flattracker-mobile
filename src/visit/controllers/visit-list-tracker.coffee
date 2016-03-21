@@ -1,5 +1,6 @@
 angular.module '%module%.visit'
 .controller 'VisitListTrackerCtrl', ($scope, VisitManager, $cordovaToast, $state) ->
+  $scope.user = storage.user
 
   $scope.$on '$ionicView.beforeEnter', ->
     $scope.loading = true

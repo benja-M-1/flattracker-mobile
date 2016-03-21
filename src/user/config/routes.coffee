@@ -10,5 +10,9 @@ angular.module '%module%.user'
     url: '/profile'
     templateUrl: 'user/views/profile.html'
     controller: 'ProfileCtrl'
+  .state 'profile-tracker',
+    url: 'profile-tracker'
+    templateUrl: 'user/views/profile-tracker.html'
+    controller: 'ProfileTrackerCtrl'
 
 
