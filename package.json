@@ -9,6 +9,7 @@
     "bower": "*",
     "coffee-script": "*",
     "cordova": "^5.4.1",
+    "fs": "0.0.2",
     "gulp": "*",
     "gulp-add-src": "*",
     "gulp-angular-templatecache": "*",
@@ -51,7 +52,17 @@
     "cordova-plugin-x-toast",
     "org.apache.cordova.camera",
     "cordova-plugin-media-capture",
-    "cordova-plugin-photokandy-video-thumbnail"
+    "cordova-plugin-photokandy-video-thumbnail",
+    "phonegap-plugin-push",
+    "cordova-plugin-inappbrowser",
+    {
+      "locator": "https://github.com/grrrian/phonegap-parse-plugin",
+      "id": "com.parse.cordova.core.pushplugin",
+      "variables": {
+        "APP_ID": "MnhiY8j6D89sV6",
+        "CLIENT_KEY": "9edyLhBY9M93u6"
+      }
+    }
   ],
   "cordovaPlatforms": [
     "android",
