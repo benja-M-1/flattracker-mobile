@@ -1,5 +1,5 @@
 angular.module '%module%.user'
-.factory 'FacebookManager', ($q, $cordovaFacebook, $log, $ionicViewService, $httpParamSerializer, storage, Users) ->
+.factory 'FacebookManager', ($q, $cordovaFacebook, $log, $ionicViewService, $httpParamSerializer, storage, Users, ParsePush) ->
 
   login = ->
     # Disable back button
@@ -23,7 +23,7 @@ angular.module '%module%.user'
             name: user.name
             facebookId: user.facebook_id
             pictureUrl: user.facebook_picture_url
-          loging.resolve()
+          ParsePush.fullInit()
         , (error) ->
           $log.error error
           loging.reject()
