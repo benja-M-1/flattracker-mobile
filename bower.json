@@ -14,6 +14,7 @@
     "lodash": "*",
     "moment": "*",
     "ionic": "driftyco/ionic-bower#v1.2.0",
-    "angular-elastic": "~2.5.1"
+    "angular-elastic": "~2.5.1",
+    "ng-cordova-oauth": "^0.2.3"
   }
 }

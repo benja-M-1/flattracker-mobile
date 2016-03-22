@@ -6,11 +6,11 @@ angular.module '%module%.visit'
 
   promise.success = (fn) ->
     promise.then(fn)
-  return promise
+    return promise
 
   promise.error = (fn) ->
     promise.then(null, fn)
-  return promise
+    return promise
 
   # Resolve the URL to the local file
   # Start the copy process
@@ -23,10 +23,9 @@ angular.module '%module%.visit'
   # Copy the recorded video to the app directory
   copyFile = (fileEntry) ->
     name = fileEntry.fullPath.substr(fileEntry.fullPath.lastIndexOf('/') + 1)
-    newName = makeid() + name
 
     window.resolveLocalFileSystemURL(cordova.file.dataDirectory, (fileSystem2) ->
-      fileEntry.copyTo(fileSystem2, newName, (succ) ->
+      fileEntry.copyTo(fileSystem2, name, (succ) ->
         return onCopySuccess(succ)
       , fail)
     , fail)
@@ -54,13 +53,14 @@ angular.module '%module%.visit'
     console.log('FAIL: ' + error.code)
     deferred.reject('ERROR')
 
-  # Function to make a unique filename
-  makeid = ->
-    text = '';
-    possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for i in [0...5]
-      text += possible.charAt(Math.floor(Math.random() * possible.length))
-    return text
+  ###  googleLogin = ->
+    $cordovaOauth.google("238286690572-ugstrdj3es1rgs86mu27kven6h8jqisr.apps.googleusercontent.com", ["https://www.googleapis.com/auth/urlshortener", "https://www.googleapis.com/auth/userinfo.email"]).then((result) ->
+    console.log(JSON.stringify(result))
+    console.log('Yé')
+    ,(error) ->
+      console.log(error)
+      console.log('Bouh ...')
+    )###
 
   # The object and functions returned from the Service
   return saveVideo: (data) ->

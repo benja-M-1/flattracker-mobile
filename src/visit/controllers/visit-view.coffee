@@ -46,12 +46,15 @@ angular.module '%module%.visit'
 
   $scope.captureVideo = ->
     $cordovaCapture.captureVideo()
-    .then(videoData) ->
-      VideoService.saveVideo(videoData).success(data) ->
+    .then((videoData) ->
+      VideoService.saveVideo(videoData).success((data) ->
+        #googleLogin()
         $scope.clip = data
         $scope.$apply()
-      .error(data) ->
+      ).error((data) ->
         console.log('ERROR: ' + data)
+      )
+    )
 
   $scope.urlForClipThumb = (clipUrl) ->
     name = clipUrl.substr(clipUrl.lastIndexOf('/') + 1)
@@ -61,4 +64,3 @@ angular.module '%module%.visit'
 
   $scope.showClip = (clip) ->
     console.log('show clip: ' + clip)
-    
