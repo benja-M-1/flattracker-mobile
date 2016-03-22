@@ -15,3 +15,6 @@ builds/*.app
 builds/*.apk
 .DS_Store
 .io-config.json
+!/platforms/android/src/fr/flattracker/MainActivity.java
+!/platforms/android/res/values/parseplugin.xml
+!/platforms/android/res/values/colors.xml

@@ -1,5 +1,5 @@
 angular.module '%module%.user'
-.run ($state, $ionicPlatform, storage, PushManager) ->
+.run ($state, $ionicPlatform, storage, ParsePush) ->
 
   # @TODO : we could check Facebook token validity?
   if storage.user
@@ -8,4 +8,4 @@ angular.module '%module%.user'
     $state.go 'login'
 
   if storage.user
-    PushManager.fullInit()
+    ParsePush.fullInit()
