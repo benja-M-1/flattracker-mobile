@@ -10,7 +10,7 @@ angular.module '%module%.visit'
     templateUrl: 'visit/views/visit-list.html'
     controller: 'VisitListCtrl'
   .state 'visit-request-list',
-    url: '/visit-requests/list'
+    url: '/visit-request-list'
     templateUrl: 'visit/views/visit-request-list.html'
     controller: 'VisitRequestListCtrl'
   .state 'visit-list-tracker',
