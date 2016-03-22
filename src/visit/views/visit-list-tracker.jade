@@ -1,10 +1,9 @@
 ion-view
   ion-header-bar(align-title="center", class="bar-stable")
-    h1.title Toutes les visites
+    h1.title Liste des mes visites
     .button
       ion-spinner(ng-show="loading")
   ion-content
     .list
-      visit-card(visit="visit", ng-repeat="visit in visits", display-assign-button="true", ng-show="!visit.tracker")
+      visit-card(visit="visit", ng-repeat="visit in visits", ng-show="visit.tracker.id==user.id")
   bottom-menu
-

@@ -1,6 +1,7 @@
 angular.module '%module%.user'
-.controller 'ProfileCtrl', ($scope, storage) ->
+.controller 'ProfileTrackerCtrl', ($scope, storage) ->
   $scope.user = storage.user
 
   $scope.switchMode = ->
-    storage.mode = "tracker"
+    storage.mode = "searcher"
+

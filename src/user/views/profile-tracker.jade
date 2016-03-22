@@ -7,10 +7,10 @@ ion-view
         .item.item-avatar
           img(ng-src="{{ user.pictureUrl }}")
           h2 {{ user.name }}
-          p Searcher
+          p Tracker
 
       .card
-        .item.item-text-wrap
-          button.button.button-positive.button-block.icon-right.ion-arrow-swap(ui-sref="visit-request-list", ng-click="switchMode()") Passer en mode tracker
-          logout
-  bottom-menu
+      .item.item-text-wrap
+        button.button.button-positive.button-block.icon-right.ion-arrow-swap(ui-sref="homepage", ng-click="switchMode()") Passer en mode searcher
+        logout
+    bottom-menu

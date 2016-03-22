@@ -6,3 +6,5 @@ angular.module '%module%.user'
     $state.go 'homepage'
   else
     $state.go 'login'
+
+  storage.mode = "searcher"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="fr.flattracker" version="0.0.15" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="fr.flattracker" version="0.0.20" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>FlatTracker</name>
   <description>
         FlatTracker Mobile
@@ -7,7 +7,7 @@
   <author email="ghribi.samy@gmail.com">
         Samy Ghribi
     </author>
-  <content src="index.html"/>
+  <content src="http://138.195.108.84:8100" original-src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
