@@ -67,25 +67,28 @@ angular.module '%module%.visit'
 
 
   $scope.launchYoutube = ->
-    if(device.platform == 'iOS')
-      scheme = 'youtube://'
-      appAvailability.check(
-        scheme,
-        () ->
-          window.open('http://www.youtube.com/', '_system', 'location=no')
-          console.log('Twitter is available')
+    if ionic.Platform.isReady
+      if device.platform == 'iOS'
+        scheme = 'youtube://'
+        appAvailability.check(
+          scheme,
+          () ->
+            window.open('http://www.youtube.com/', '_system', 'location=no')
+            console.log('Youtube is available')
+          , () ->
+            window.open('https://itunes.apple.com/fr/app/youtube/id544007664?mt=8', '_system', 'location=no');
+            console.log('Youtube is not available');
+        )
+      else if device.platform == 'Android'
+        scheme = 'com.google.android.youtube'
+        appAvailability.check(
+          scheme,
+          () ->
+            window.open('http://www.youtube.com/', '_system', 'location=no')
+            console.log('Youtube is available')
         , () ->
-          window.open('https://itunes.apple.com/fr/app/youtube/id544007664?mt=8', '_system', 'location=no');
-          console.log('Twitter is not available');
-      )
-    else if(device.platform == 'Android')
-      scheme = 'com.youtube.android'
-      appAvailability.check(
-        scheme,
-        () ->
-          window.open('http://www.youtube.com/', '_system', 'location=no')
-          console.log('Twitter is available')
-      , () ->
-        window.open('https://play.google.com/store/apps/details?id=com.google.android.youtube', '_system', 'location=no');
-        console.log('Twitter is not available');
-      )
+          window.open('https://play.google.com/store/apps/details?id=com.google.android.youtube', '_system', 'location=no');
+          console.log('Youtube is not available');
+        )
+    else
+      window.open('http://www.youtube.com/', '_system', 'location=no')
