@@ -6,11 +6,11 @@ angular.module '%module%.visit'
 
   promise.success = (fn) ->
     promise.then(fn)
-  return promise
+    return promise
 
   promise.error = (fn) ->
     promise.then(null, fn)
-  return promise
+    return promise
 
   # Resolve the URL to the local file
   # Start the copy process
@@ -23,10 +23,9 @@ angular.module '%module%.visit'
   # Copy the recorded video to the app directory
   copyFile = (fileEntry) ->
     name = fileEntry.fullPath.substr(fileEntry.fullPath.lastIndexOf('/') + 1)
-    newName = makeid() + name
 
     window.resolveLocalFileSystemURL(cordova.file.dataDirectory, (fileSystem2) ->
-      fileEntry.copyTo(fileSystem2, newName, (succ) ->
+      fileEntry.copyTo(fileSystem2, name, (succ) ->
         return onCopySuccess(succ)
       , fail)
     , fail)
@@ -45,7 +44,7 @@ angular.module '%module%.visit'
   # Finally resolves the promies and returns the name
   prevImageSuccess = (succ) ->
     correctUrl = succ.slice(0, -4)
-    correctUrl += '.MOV'
+    correctUrl += '.mp4'
     deferred.resolve(correctUrl)
 
   # Called when anything fails
@@ -54,13 +53,6 @@ angular.module '%module%.visit'
     console.log('FAIL: ' + error.code)
     deferred.reject('ERROR')
 
-  # Function to make a unique filename
-  makeid = ->
-    text = '';
-    possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for i in [0...5]
-      text += possible.charAt(Math.floor(Math.random() * possible.length))
-    return text
 
   # The object and functions returned from the Service
   return saveVideo: (data) ->

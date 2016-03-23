@@ -14,4 +14,5 @@ angular.module '%module%.visit', [
   'ngCordova'
   'ui.router'
   'monospaced.elastic'
+  'ngCordovaOauth'
 ]

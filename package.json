@@ -1,6 +1,6 @@
 {
   "name": "flattracker-mobile",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "scripts": {
     "postinstall": "bower install && gulp build",
     "start": "gulp watch"
@@ -37,24 +37,39 @@
       "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
       "id": "cordova-plugin-whitelist"
     },
-    "cordova-plugin-whitelist",
-    "cordova-plugin-splashscreen@^2.0.0",
-    "com.ionic.keyboard",
-    "com.ionic.keyboard@^1.0.4",
     {
+      "locator": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
+      "id": "cordova-plugin-x-toast"
+    },
+    "com.ionic.keyboard",
+    {
+      "id": "cordova-plugin-facebook4",
       "locator": "cordova-plugin-facebook4",
       "variables": {
         "APP_ID": "156492668043546",
         "APP_NAME": "FlatTracker"
       }
     },
-    "cordova-plugin-x-toast",
-    "org.apache.cordova.camera",
+    "cordova-plugin-camera",
     "cordova-plugin-media-capture",
-    "cordova-plugin-photokandy-video-thumbnail"
+    "cordova-plugin-file",
+    "com.photokandy.videothumbnail",
+    "cordova-plugin-inappbrowser",
+    "org.apache.cordova.device",
+    "cordova-plugin-appavailability"
   ],
   "cordovaPlatforms": [
     "android",
-    "ios"
+    "ios",
+    {
+      "platform": "android",
+      "version": "",
+      "locator": "android"
+    },
+    {
+      "platform": "ios",
+      "version": "",
+      "locator": "ios"
+    }
   ]
 }

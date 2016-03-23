@@ -1,5 +1,5 @@
 angular.module '%module%.visit'
-.controller 'VisitViewCtrl', ($stateParams, $cordovaToast, $state, $scope, VisitManager, storage, $cordovaCapture, VideoService) ->
+.controller 'VisitViewCtrl', ($stateParams, $cordovaToast, $state, $scope, VisitManager, storage, $cordovaCapture, VideoService, $cordovaInAppBrowser) ->
   visitId = $stateParams.id
   $scope.form = {}
   $scope.addCommentFormDisabled = false
@@ -43,15 +43,18 @@ angular.module '%module%.visit'
 
   # Capture Video
   $scope.clip = ''
+  $scope.clipUrl = ''
 
   $scope.captureVideo = ->
     $cordovaCapture.captureVideo()
-    .then(videoData) ->
-      VideoService.saveVideo(videoData).success(data) ->
+    .then((videoData) ->
+      VideoService.saveVideo(videoData).success((data) ->
         $scope.clip = data
-        $scope.$apply()
-      .error(data) ->
+        $scope.clipUrl = $scope.urlForClipThumb($scope.clip)
+      ).error((data) ->
         console.log('ERROR: ' + data)
+      )
+    )
 
   $scope.urlForClipThumb = (clipUrl) ->
     name = clipUrl.substr(clipUrl.lastIndexOf('/') + 1)
@@ -61,4 +64,28 @@ angular.module '%module%.visit'
 
   $scope.showClip = (clip) ->
     console.log('show clip: ' + clip)
-    
+
+
+  $scope.launchYoutube = ->
+    if(device.platform == 'iOS')
+      scheme = 'youtube://'
+      appAvailability.check(
+        scheme,
+        () ->
+          window.open('http://www.youtube.com/', '_system', 'location=no')
+          console.log('Twitter is available')
+        , () ->
+          window.open('https://itunes.apple.com/fr/app/youtube/id544007664?mt=8', '_system', 'location=no');
+          console.log('Twitter is not available');
+      )
+    else if(device.platform == 'Android')
+      scheme = 'com.youtube.android'
+      appAvailability.check(
+        scheme,
+        () ->
+          window.open('http://www.youtube.com/', '_system', 'location=no')
+          console.log('Twitter is available')
+      , () ->
+        window.open('https://play.google.com/store/apps/details?id=com.google.android.youtube', '_system', 'location=no');
+        console.log('Twitter is not available');
+      )
