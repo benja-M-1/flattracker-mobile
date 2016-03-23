@@ -11,8 +11,9 @@ ion-view
           i.icon.ion-ios-videocam
           | Vidéos
         .item
-          img(ng-src="{{urlForClipThumb(clip)}}", ng-click="showClip(clip)", style="height:160px")
-          button.button.button-balanced.button-block(ng-click="captureVideo()", ng-show="visit.tracker.id==storage.user.id") Prendre une vidéo
+          img(ng-if="clipUrl", ng-src="{{clipUrl}}", style="width:100%")
+          button.button.button-stable.button-block(ng-click="captureVideo()", ng-show="visit.tracker.id==storage.user.id") Prendre une vidéo
+          button.button.button-stable.button-block(ng-click="launchYoutube()", ng-show="visit.tracker.id==storage.user.id") Mettre en ligne sur Youtube
       .card(ng-if="visit.tracker")
         .item.item-divider.item-icon-left
           i.icon.ion-chatboxes

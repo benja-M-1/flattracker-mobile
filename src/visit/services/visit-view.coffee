@@ -44,7 +44,7 @@ angular.module '%module%.visit'
   # Finally resolves the promies and returns the name
   prevImageSuccess = (succ) ->
     correctUrl = succ.slice(0, -4)
-    correctUrl += '.MOV'
+    correctUrl += '.mp4'
     deferred.resolve(correctUrl)
 
   # Called when anything fails
@@ -53,14 +53,6 @@ angular.module '%module%.visit'
     console.log('FAIL: ' + error.code)
     deferred.reject('ERROR')
 
-  ###  googleLogin = ->
-    $cordovaOauth.google("238286690572-ugstrdj3es1rgs86mu27kven6h8jqisr.apps.googleusercontent.com", ["https://www.googleapis.com/auth/urlshortener", "https://www.googleapis.com/auth/userinfo.email"]).then((result) ->
-    console.log(JSON.stringify(result))
-    console.log('Yé')
-    ,(error) ->
-      console.log(error)
-      console.log('Bouh ...')
-    )###
 
   # The object and functions returned from the Service
   return saveVideo: (data) ->
